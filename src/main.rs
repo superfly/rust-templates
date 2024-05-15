@@ -1,8 +1,11 @@
-use axum::{routing::get, Router};
+#[macro_use] extern crate rocket;
 
-#[tokio::main]
-async fn main() {
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+#[get("/")]
+fn index() -> &'static str {
+    "Hello from fly.io!"
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/", routes![index])
 }
