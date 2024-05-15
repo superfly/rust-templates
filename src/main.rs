@@ -1,8 +1,10 @@
-use axum::{routing::get, Router};
+use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+    let hello = warp::path::end().map(|| "Hello from fly.io");
+
+    warp::serve(hello)
+        .run(([0, 0, 0, 0], 8080))
+        .await;
 }
