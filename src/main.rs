@@ -1,8 +1,16 @@
-use axum::{routing::get, Router};
+use actix_web::{get, App, HttpServer, Responder};
 
-#[tokio::main]
-async fn main() {
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080").await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+#[get("/")]
+async fn hello() -> impl Responder {
+    format!("Hello from fly.io!")
+}
+
+#[actix_web::main] // or #[tokio::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new().service(hello)
+    })
+    .bind(("0.0.0.0", 8080))?
+    .run()
+    .await
 }
