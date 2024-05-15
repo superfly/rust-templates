@@ -1,4 +1,7 @@
-# Rust WebApp Speedruns
+# Rust + Rocket + Fly.io Speedrun
 
-- [poem]
-- [axum]
+```sh
+git clone --single-branch --branch rocket git@github.com:superfly/rust-templates.git rocket-app
+cd rocket-app
+flyctl launch
+```
