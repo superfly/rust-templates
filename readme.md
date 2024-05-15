@@ -3,5 +3,5 @@
 ```sh
 git clone --single-branch --branch actix-web git@github.com:superfly/rust-templates.git actix-web-app
 cd actix-web-app
-flyctl launch
+flyctl launch --generate-name
 ```
