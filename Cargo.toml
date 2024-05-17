@@ -1,4 +1,10 @@
 [package]
-name = "generic-rust"
+name = "dioxus-liveview-app"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+axum = "0.7.5"
+dioxus = "0.5.1"
+dioxus-liveview = { version = "0.5.1", features = ["axum"] }
+tokio = { version = "1.37.0", features = ["full"] }

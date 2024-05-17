@@ -1,11 +1,7 @@
-# Rust WebApp Speedruns
+# Rust +Dioxus Liveview + Fly.io Speedrun
 
-A collection of reference templates for getting started with Rust on Fly.io
-
-- [Axum](https://github.com/superfly/rust-templates/tree/axum)
-- [Poem](https://github.com/superfly/rust-templates/tree/poem)
-- [Warp](https://github.com/superfly/rust-templates/tree/warp)
-- [Actix Web](https://github.com/superfly/rust-templates/tree/actix-web)
-- [Rocket](https://github.com/superfly/rust-templates/tree/rocket)
-
-
+```sh
+git clone --single-branch --branch dioxus-liveview git@github.com:superfly/rust-templates.git dioxus-liveview-app
+cd dioxus-liveview-app
+flyctl launch --generate-name
+```
